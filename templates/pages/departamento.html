@@ -40,7 +40,11 @@
                 <tr>
                     <td>{{departamento.id}}</td>
                     <td>{{departamento.descripcion}}</td>
-                    <td>{{departamento.estado}}</td>
+                    <td> {% if departamento.estado %} 
+                            Activo
+                          {% else %}
+                            Inactivo
+                          {% endif %}
                     <td>
                       <a href="{% url 'editarDepar' departamento.id %}"> ✍️ </a>
                       <a href="{% url 'eliminarDepar' departamento.id %}"> ✖️ </a>

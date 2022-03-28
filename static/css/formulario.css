@@ -1,5 +1,5 @@
 .form-container {
-    width: 700px;
+    width: 800px;
     max-width: 100%;
     min-width: 240px;
     background-color: var(--boton-secundary);
@@ -11,7 +11,7 @@
     margin: 0 auto;
   }
   .form-header {
-    background-color:cornflowerblue ;
+    background-color:rgba(219, 156, 224, 0.979) ;
     padding: 1px;
     text-align: center;
     color: black;
@@ -61,23 +61,23 @@
   }
   
   .table-responsive {
-          width: 100%;
-          overflow-y: hidden;
-          -ms-overflow-style: -ms-autohiding-scrollbar;
-          display: flex;
-          flex-direction:column;
-          justify-content: center;
-          align-items: center;
+      width: 100%;
+      overflow-y: hidden;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
   }
   .cosulta-est{
     width: 90%;
   }
   .consulta-est th {
-    color:var(--boton-warning);
+    color:ghostwhite;
     font-size: 20px;
   }
   .consulta-est th,td{
-    width: 25%;
+    width: 29%;
     text-align: center;
   }
   .boton{
@@ -86,8 +86,3 @@
     text-decoration: double;
     box-sizing: border-box;
   }
-
-  /* .form h2,h1{
-    display:flex;
-    justify-content: center;
-  } */

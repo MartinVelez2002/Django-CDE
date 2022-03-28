@@ -41,8 +41,12 @@
                 <tr>
                     <td> {{cargo.id}} </td>
                     <td> {{cargo.descripcion}} </td>
-                    <td> {{cargo.estado}} </td>
-
+                    <td> {% if cargo.estado %} 
+                              Activo
+                          {% else %}
+                              Inactivo
+                          {% endif %}
+                    </td>
                     <td class="acciones">
 
                       <a href="{% url 'editarCargo' cargo.id %}"> ✍️ </a>

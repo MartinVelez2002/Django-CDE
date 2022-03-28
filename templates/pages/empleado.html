@@ -49,7 +49,11 @@
                     <td>{{empleado.cargo}}</td>
                     <td>{{empleado.departamento}}</td>
                     <td>${{empleado.sueldo}}</td>
-                    <td>{{empleado.estado}}</td>
+                    <td> {% if empleado.estado %} 
+                              Activo
+                          {% else %}
+                              Inactivo
+                          {% endif %}
                     <td>
                         <a href="{% url 'editarEmpleado' empleado.id %}">✍️</a> 
                         <a href="{% url 'eliminarEmpleado' empleado.id %}">✖️</a> 
