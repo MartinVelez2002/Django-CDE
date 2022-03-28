@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block titulo %}  Departamentos {% endblock %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css/formulario.css'  %}"> {% endblock %}  
+
+{% block contenido %}
+    <section class="form-container">
+      <div class="form-header">
+        <h2> Formulario de Departamentos </h2>
+      </div>
+      <form method="POST" id="form-departamento" class="form">
+        {% csrf_token %}
+        
+          <button 
+            id="enviar"
+            type="submit"
+            name="enviar"> 
+            <a href="{% url 'agregarDepartamento' %}"> 
+              {{accion}}
+            </a>
+          </button>
+        
+      </form>
+       <div class="consulta none table-responsive" id="consulta">
+            <h3>Listado de Departamentos</h3>
+          <table class="consulta-est" id="consulta-est" border="1">
+            
+            <thead>
+                <th>#</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+                
+              </thead>
+              <tbody class="detalle-est" id="detalle-est">
+                {% for departamento in depar %}
+                <tr>
+                    <td>{{departamento.id}}</td>
+                    <td>{{departamento.descripcion}}</td>
+                    <td>{{departamento.estado}}</td>
+                    <td>
+                      <a href="{% url 'editarDepar' departamento.id %}"> ✍️ </a>
+                      <a href="{% url 'eliminarDepar' departamento.id %}"> ✖️ </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+          </table>
+       </div>    
+    </section>
+{% endblock %}

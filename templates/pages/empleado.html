@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+
+{% block titulo %}  Empleados {% endblock %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css/formulario.css'  %}"> {% endblock %}  
+
+{% block contenido %}
+
+    <section class="form-container">
+      <div class="form-header">
+        <h2> Formulario de Empleados </h2>
+      </div>
+      <form method="POST" id="user-form" class="form">
+        {% csrf_token %}
+        
+        <button
+          id="enviar"
+          type="submit"
+          name="enviar"> 
+          <a href="{% url 'agregarEmpleado' %}">
+          {{accion}}
+          </a>
+        </button>
+        
+      </form>
+       <div class="consulta none table-responsive" id="consulta">
+            <h3>Listado de Empleados</h3>
+          <table class="consulta-est" id="consulta-est" border="1">
+            
+            <thead>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Cédula</th>
+                <th>Cargo</th>
+                <th>Departamento</th>
+                <th>Sueldo</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+                
+              </thead>
+              <tbody class="detalle-est" id="detalle-est">
+                {% for empleado in empleados %}
+                <tr>
+                    <td>{{empleado.id}}</td>
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.cedula}}</td>
+                    <td>{{empleado.cargo}}</td>
+                    <td>{{empleado.departamento}}</td>
+                    <td>${{empleado.sueldo}}</td>
+                    <td>{{empleado.estado}}</td>
+                    <td>
+                        <a href="{% url 'editarEmpleado' empleado.id %}">✍️</a> 
+                        <a href="{% url 'eliminarEmpleado' empleado.id %}">✖️</a> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+          </table>
+       </div>    
+    </section>
+{% endblock %}

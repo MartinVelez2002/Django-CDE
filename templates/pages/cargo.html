@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+
+{% block titulo %}  Cargos {% endblock %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css/formulario.css'  %}"> {% endblock %}  
+
+{% block contenido %}
+    <section class="form-container">
+      <div class="form-header">
+        <h2> Formulario de Cargos </h2>
+      </div>
+      <form method="POST" id="form-cargo" class="form">
+        {% csrf_token %}
+        
+        <button 
+            id="enviar"
+            type="submit"
+            name="enviar"> 
+            <a href="{% url 'agregarCargo' %}">
+            {{accion}}
+            </a>
+        </button>
+          
+      </form>
+      
+       <div class="consulta none table-responsive" id="consulta">
+            <h3>Listado de Cargos</h3>
+          <table class="consulta-est" id="consulta-est" border="1">
+            
+            <thead>
+                <th>#</th>
+                <th>Descripcion</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+                
+              </thead>
+              <tbody class="detalle-est" id="detalle-est">
+                {% for cargo in cargos %}
+                <tr>
+                    <td> {{cargo.id}} </td>
+                    <td> {{cargo.descripcion}} </td>
+                    <td> {{cargo.estado}} </td>
+
+                    <td class="acciones">
+
+                      <a href="{% url 'editarCargo' cargo.id %}"> ✍️ </a>
+                      <a href="{% url 'eliminarCargo' cargo.id %}"> ✖️ </a>
+                      
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+          </table>
+            
+       </div>    
+    </section>
+{% endblock %}

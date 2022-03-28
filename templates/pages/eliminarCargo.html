@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block titulo %}  Cargos {% endblock %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css/formulario.css'  %}"> {% endblock %} 
+
+{% block contenido %}
+<section class="form-container">
+    <div class="form-header">
+        <h1>Eliminación de Cargo</h1>
+    </div>
+    <form method="POST" id="form-cargo" class="form">
+        {% csrf_token %}
+        <center><h2>⚠️¿Estás seguro de eliminar el siguiente Cargo?⚠️</h2></center> 
+        <center><h1><span style="color:rgb(205, 182, 248);"> {{cargo.id}} - {{cargo.descripcion}} </span></h1> </center> 
+        
+        <button style="background:red;border-radius:5px;padding:2px" type="submit" > Eliminar </button>
+        <center><a style="display:block;background:green;border-radius:2px" href="{% url 'cargo' %}"> Cancelar </a></center> 
+    </form>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block titulo %}  Cargos {% endblock %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css/formulario.css'  %}"> {% endblock %} 
+
+{% block contenido %}
+<section class="form-container">
+    <div class="form-header">
+        <h1> Agregar Empleado </h1>
+    </div>
+
+    <form method="POST" id="form-cargo" class="form">
+
+        {% csrf_token %}
+        {{empleadoForm.as_p}}
+        
+        <button style="background:rgb(17, 139, 64);border-radius:5px;padding:2px" type="submit" href="{% url 'empleado' %}" > Guardar </button>
+
+    </form>
+
+</section>
+
+{% endblock %}
