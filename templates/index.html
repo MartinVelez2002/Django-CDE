@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/main.css'  %}">
     <link rel="stylesheet" href="{% static 'css/header.css'  %}">
+    <link rel="icon" href="{% static 'img/mifavicon.png' %}">
+
     {% block css %}  {% endblock %}
 
     <title> {% block titulo %}  Nómina de Pagos {% endblock %} </title>

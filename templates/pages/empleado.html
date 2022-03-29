@@ -30,6 +30,7 @@
           <table class="consulta-est" id="consulta-est" border="1">
             
             <thead>
+
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Cédula</th>
@@ -38,14 +39,14 @@
                 <th>Sueldo</th>
                 <th>Estado</th>
                 <th>Opciones</th>
-                
+       
               </thead>
               <tbody class="detalle-est" id="detalle-est">
                 {% for empleado in empleados %}
                 <tr>
                     <td>{{empleado.id}}</td>
                     <td>{{empleado.nombre}}</td>
-                    <td>{{empleado.cedula}}</td>
+                    <td>0{{empleado.cedula}}</td>
                     <td>{{empleado.cargo}}</td>
                     <td>{{empleado.departamento}}</td>
                     <td>${{empleado.sueldo}}</td>

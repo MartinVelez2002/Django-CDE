@@ -32,7 +32,7 @@ class DeparForm(forms.ModelForm):
 class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
-        fields = ['nombre','cedula','cargo','departamento','sueldo']
+        fields = ['nombre','cedula','cargo','departamento','sueldo','estado']
         widgets = {
             'nombre':forms.TextInput(attrs={
                 'placeholder':'Nombre del Empleado',
@@ -40,8 +40,8 @@ class EmpleadoForm(forms.ModelForm):
                 'required': True
             }),
             
-            'cedula':forms.TextInput(attrs={
-                'placeholder':'Ingrese su número de cédula',
+            'cedula':forms.NumberInput(attrs={
+                'placeholder':'Digite su número de cédula',
                 'class':'form-group',
                 'required': True
             }),
@@ -56,17 +56,9 @@ class EmpleadoForm(forms.ModelForm):
             'required': True
             }),
 
-            'sueldo':forms.TextInput(attrs={
+            'sueldo':forms.NumberInput(attrs={
                 'placeholder':'Sueldo del Empleado',
                 'class':'form-group',
                 'required':True
             })
         } 
-
-def clean_estado(self):
-    vali = self.cleaned_data.get('estado')
-
-    if vali == True:
-        return 'Activo'
-    else: 
-        return 'Inactivo'

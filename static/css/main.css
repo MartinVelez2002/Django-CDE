@@ -21,6 +21,8 @@ body{
     margin:0; /** por default trae un margen de 8px */
     overflow-x: hidden;/** que el desborde del eje horizontal se oculte y no genere la barra de desplazamiento*/
     box-sizing: inherit
+
+    
 } 
 main{
     margin:0 10px;
@@ -39,3 +41,8 @@ a{
 li{
     list-style:none;
 }
+body{
+    background: -webkit-linear-gradient(to right, #ff002275, #002fff8f);
+    background: linear-gradient(to right, #ff002275, #002fff8f);
+    background-size: cover;
+  }
