@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/main.css'  %}">
     <link rel="stylesheet" href="{% static 'css/header.css'  %}">
+    <link rel="stylesheet" href="{% static 'css/fondo.css'  %}">
     <link rel="icon" href="{% static 'img/mifavicon.png' %}">
 
     {% block css %}  {% endblock %}
@@ -21,7 +22,7 @@
     <header class="header">
         <nav class="navegacion">
             <a href=" {% url 'inicio' %} " class="logo">
-                <img src="{% static 'img/león.jpg'  %}" alt="logotipo" width="50px">
+                <img src="{% static 'img/Among-Us-Logo.png'  %}" alt="logotipo" width="75px">
                 <div class="logo">
                     Rol de Pagos
                 </div>
@@ -36,7 +37,7 @@
     <main>
         {% block contenido %}
             <section>
-                <img src="{% static 'img/recursos.jpg'  %}" alt="Recursos" width="800" class="portada">
+                <img src="{% static 'img/fondito.png'  %}" alt="Recursos" width="800" class="portada">
             </section>
         {% endblock %}
         

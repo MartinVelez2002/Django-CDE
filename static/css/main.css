@@ -41,8 +41,3 @@ a{
 li{
     list-style:none;
 }
-body{
-    background: -webkit-linear-gradient(to right, #ff002275, #002fff8f);
-    background: linear-gradient(to right, #ff002275, #002fff8f);
-    background-size: cover;
-  }
